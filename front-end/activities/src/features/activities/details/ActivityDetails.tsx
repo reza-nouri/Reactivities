@@ -5,6 +5,7 @@ import { Activity } from '../../../app/models/activity';
 interface Props {
     activity: Activity;
     cancelSelectActivity: () => void;
+    openForm: (id?: string) => void;
 }
 
 const ActivityDetails = (props:Props) =>{
@@ -24,7 +25,7 @@ const ActivityDetails = (props:Props) =>{
             </Card.Content>
             <Card.Content extra>
                 <Button.Group>
-                    <Button basic color='blue' content='Edit'/>
+                    <Button onClick={() => props.openForm(props.activity.id)} basic color='blue' content='Edit'/>
                     <Button onClick={props.cancelSelectActivity} basic color='blue' content='Cancel'/>
                 </Button.Group>
             </Card.Content>
